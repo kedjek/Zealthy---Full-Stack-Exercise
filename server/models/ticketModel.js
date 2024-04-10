@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const ticketSchema = new Schema ({
     name: {type: String, required: true},
-    Email: {type: String, required: true},
-    Message: {type: String, required: true}
+    email: {type: String, required: true},
+    message: {type: String, required: true}
 })
 
 

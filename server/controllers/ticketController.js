@@ -4,9 +4,9 @@ const ticketController = {};
 
 ticketController.createTicket = async (req, res, next) => {
     const { name, email, message } = req.body;
-
     try {
-        const ticket = await Ticket.create({name, email, message});
+        const ticket = await Ticket.create({ name, email, message})
+        res.locals.ticket = ticket;
         return next();
     } catch (err) {
         return next({
@@ -16,3 +16,5 @@ ticketController.createTicket = async (req, res, next) => {
     }
 
 }
+
+module.exports = ticketController;
