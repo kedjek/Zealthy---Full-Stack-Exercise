@@ -23,7 +23,7 @@ const TicketForm = (props) => {
         try {
             console.log('Would normally send email here with body: ', formData)
 
-            const response = await fetch('http://localhost:3000/ticketformsent', {
+            const response = await fetch('ticketformsent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,11 +36,11 @@ const TicketForm = (props) => {
               // window.location.reload();
               
             } else {
-              console.error('Error sending ticket:', response.statusText);
+              console.error('Error sending ticket to /ticketformsent:', response.statusText);
             }
             
         } catch (err) {
-            console.error('Error sending ticket:', err)
+            console.error('Error caught when sending ticket:', err)
         }
       };
     
