@@ -21,8 +21,7 @@ const TicketForm = (props) => {
     
         // Add logic to handle form submission (e.g., send data to a server)
         try {
-            const response = await fetch(//replace '' with 'fetch url'
-            '', {
+            const response = await fetch('http://localhost:3000/ticketformsent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
