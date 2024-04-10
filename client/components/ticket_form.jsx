@@ -21,6 +21,8 @@ const TicketForm = (props) => {
     
         // Add logic to handle form submission (e.g., send data to a server)
         try {
+            console.log('Would normally send email here with body: ', formData)
+
             const response = await fetch('http://localhost:3000/ticketformsent', {
                 method: 'POST',
                 headers: {
@@ -30,15 +32,15 @@ const TicketForm = (props) => {
             });
             if (response.ok) {
               console.log('Email sent successfully!');
-              
               // Refresh the page after successful submission
-              window.location.reload();
+              // window.location.reload();
+              
             } else {
-              console.error('Error sending email:', response.statusText);
+              console.error('Error sending ticket:', response.statusText);
             }
-    
+            
         } catch (err) {
-            console.error('Error sending email:', err)
+            console.error('Error sending ticket:', err)
         }
       };
     
