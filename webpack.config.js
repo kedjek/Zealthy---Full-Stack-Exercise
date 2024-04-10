@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const babelLoader = require('babel-loader');
 
 module.exports = {
   entry: [
@@ -32,7 +30,17 @@ module.exports = {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/', // optional, this will copy the files to dist/images
+          },
+        },
+      },
     ],
   },
   plugins: [
