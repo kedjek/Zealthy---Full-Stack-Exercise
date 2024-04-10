@@ -11,7 +11,7 @@ function App() {
               Zealthy Support page
      </header>
 
-     <TicketForm className='ticketBody'/>
+     <TicketForm />
 
     </main>
   );
