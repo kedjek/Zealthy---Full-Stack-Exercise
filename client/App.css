@@ -1,10 +1,21 @@
-.App {
+.App-header {
+  min-height: 1.5em;
+  width:auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-align: center;
+  justify-content: center;
+  font-size: calc(1em + 2vmin);
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: rgb(174, 229, 192);
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
+  padding:1em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +24,54 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-link {
+  color: #61dafb;
+}
+
+.ticketBody{
+  color:black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 60vh;
 }
 
-.App-link {
-  color: #61dafb;
+.ticketFieldBox{
+  width: 30vw;
+  height: 2vh;
+}
+
+.ticketMessageBox{
+  width: 30vw;
+  height: 16vh;
+}
+
+
+.ticketSubmitButton {
+  color: white;
+  background-color: black;
+  margin-right: 1vw;
+  height: 5vh;
+  width: 8vw;
+  font-weight: bold;
+  border-radius: 1em; 
+  border: none; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.ticketSubmitButton:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ticketSubmitSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes App-logo-spin {
