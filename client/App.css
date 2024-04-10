@@ -1,10 +1,21 @@
-.App {
+.App-header {
+  min-height: 1.5em;
+  width:auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-align: center;
+  justify-content: center;
+  font-size: calc(1em + 2vmin);
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: rgb(174, 229, 192);
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
+  padding:1em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +24,15 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
+}
+
+.ticketBody{
+  color:black;
+  align-items: center;
+  justify-content: center;
+
 }
 
 @keyframes App-logo-spin {
