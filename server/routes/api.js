@@ -7,7 +7,12 @@ const ticketController = require('../controllers/ticketController');
 
 router.post('/', ticketController.createTicket,
   (req, res) => {
-    console.log(req.body)
+    res.status(200).redirect('/');
+  }
+);
+
+router.get('/backendadminpanel',
+  (req, res) => {
     res.status(200).redirect('/');
   }
 );
