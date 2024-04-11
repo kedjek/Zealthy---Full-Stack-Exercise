@@ -23,6 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 // Statically serve everything in the dist folder on route '/'
 app.use(express.static(path.join(__dirname, '../dist')));
 
+// Serve the React app on /backendadminpanel url
+app.get('/backendadminpanel', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
 // Api routing when receiving formData
 app.use('/ticketformsent', apiRouter);
 
