@@ -23,7 +23,9 @@ const TicketForm = (props) => {
         try {
             console.log('Would normally send email here with body: ', formData)
 
-            const response = await fetch('/ticketformsent', {
+            const vercelUrl = process.env.REACT_APP_VERCEL_URL;
+            console.log(vercelUrl, "vercel url is written here")
+            const response = await fetch(`${vercelUrl}/ticketformsent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

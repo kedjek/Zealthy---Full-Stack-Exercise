@@ -16,13 +16,6 @@ mongoose.connect(uri, {})
   console.error('Error connecting to MongoDB:', err);
 });
 
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-
 // Handle parsing request body
 app.use(express.json());
 app.use(cookieParser());
