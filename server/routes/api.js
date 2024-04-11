@@ -6,10 +6,18 @@ const fs = require('fs');
 const ticketController = require('../controllers/ticketController');
 const correctPassword = 'pwd';
 
+console.log('does this show in vercel api file?')
+console.log('does this show in vercel api file?')
+
+
+
 router.post('/', ticketController.createTicket,
-  (req, res) => {
-    res.status(200);
-  }
+(req, res) => {
+  console.log('does this show in vercel api file?')
+  console.log('does this show in vercel api file?')
+  console.log('does this show in vercel api file?')
+  res.status(200);
+}
 );
 
 router.get('/', ticketController.getTicket,
