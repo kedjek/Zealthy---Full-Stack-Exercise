@@ -1,6 +1,7 @@
 const path = require ('path');
 const express = require ('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ mongoose.connect(mongoURI, {})
 
 // Handle parsing request body
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
   
 // Statically serve everything in the dist folder on route '/'
@@ -27,6 +29,16 @@ app.use(express.static(path.join(__dirname, '../dist')));
 app.get('/backendadminpanel', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
+
+// Serve the React app on /backendadminpanelverified url when cookie is true ie. logged in
+app.get('/backendadminpanelverified', (req, res) => {
+  if (req.cookies.adminLoggedIn === 'true'){
+    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+  } else {
+    res.redirect('/backendadminpanel')
+  }
+});
+
 
 // Api routing when receiving formData
 app.use('/ticketformsent', apiRouter);

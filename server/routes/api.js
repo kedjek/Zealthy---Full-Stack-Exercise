@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const ticketController = require('../controllers/ticketController');
+const correctPassword = 'pwd';
 
 router.post('/', ticketController.createTicket,
   (req, res) => {
@@ -13,7 +14,16 @@ router.post('/', ticketController.createTicket,
 
 router.post('/adminlogin',
   (req, res) => {
-    res.status(200).redirect('/');
+    const { password } = req.body;
+
+    //if password is correct, then set a cookie & redirect to ticket page
+    if (password === correctPassword){
+      res.cookie('adminLoggedIn', true, { maxAge: 3600000})
+
+      res.status(200).redirect('/backendadminpanelverified')
+    } else {
+      res.status(200).redirect('/backendadminpanel')
+    }
   }
 );
 
