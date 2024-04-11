@@ -3,7 +3,6 @@ const Ticket = require('../models/ticketModel');
 const ticketController = {};
 
 ticketController.createTicket = async (req, res, next) => {
-    console.log('im creating a ticketttttttttttttttttttttttttttt')
     const { name, email, message } = req.body;
     const status = 'new';
     try {

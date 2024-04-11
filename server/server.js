@@ -19,6 +19,7 @@ mongoose.connect(uri, {
   console.error('Error connecting to MongoDB:', err);
 });
 
+console.log('does this show in vercel?')
 // Handle parsing request body
 app.use(express.json());
 app.use(cookieParser());
@@ -26,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
   
 // Statically serve everything in the dist folder on route '/'
 app.use(express.static(path.join(__dirname, '../dist')));
+
+// Api routing when receiving form data
+app.use('/ticketformsent', apiRouter);
 
 // Serve the React app on /backendadminpanel url
 app.get('/backendadminpanel', (req, res) => {
@@ -42,12 +46,8 @@ app.get('/backendadminpanelverified', (req, res) => {
 });
 
 
-// Api routing when receiving formData
-app.use('/ticketformsent', apiRouter);
-
 /*catch-all route handler for any requests to an unknown route*/
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
-
 
 app.use((err, req, res, next) => {
     const defaultErr = {
