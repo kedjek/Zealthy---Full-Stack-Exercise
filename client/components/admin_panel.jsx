@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const AdminPanel = (props) => {
 
+    const tickets = useState({});
+
+    useEffect (() => {
+        
+
+    },[])
+    
     //make get request to /ticketsformsent url and display all tickets here with response, update status of ticket 
     //status are 'new', 'in progress' and 'resolved'
 
