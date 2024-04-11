@@ -11,7 +11,7 @@ router.post('/', ticketController.createTicket,
   }
 );
 
-router.get('/backendadminpanel',
+router.post('/adminlogin',
   (req, res) => {
     res.status(200).redirect('/');
   }
