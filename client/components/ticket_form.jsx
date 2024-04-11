@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 
+
 const TicketForm = (props) => {
       // Use state to manage form data
       const [formData, setFormData] = useState({
@@ -9,6 +10,9 @@ const TicketForm = (props) => {
         message: '',
         recaptcha: '',
       });
+
+      const vercelUrl = process.env.REACT_APP_VERCEL_URL;
+
     
       // Handle form submission
       const handleSubmit = async (e) => {
@@ -22,7 +26,6 @@ const TicketForm = (props) => {
         // Add logic to handle form submission (e.g., send data to a server)
         try {
             console.log('Would normally send email here with body: ', formData)
-            const vercelUrl = process.env.REACT_APP_VERCEL_URL;
             console.log( "vercel url is written here")
             console.log(process.env.REACT_APP_VERCEL_URL)
 
