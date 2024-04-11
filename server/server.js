@@ -17,11 +17,6 @@ mongoose.connect(uri, {})
 });
 
 console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
-console.log('does this show in vercel server file?')
 
 // Handle parsing request body
 app.use(express.json());
