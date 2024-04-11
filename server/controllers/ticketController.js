@@ -39,15 +39,25 @@ ticketController.getTicket = async (req, res, next) => {
 }
 
 ticketController.updateTicket = async (req, res, next) => {
-    const { name, email, message } = req.body;
-    const status = 'new';
     try {
-        const ticket = await Ticket.create({ name, email, message, status})
-        res.locals.ticket = ticket;
+        const updates = req.body; 
+
+        // Loop through each update object
+        for (const ticket of updates) {
+            const { id, status, response } = ticket;
+
+            // Find the ticket by ID and update its status and response
+            await Ticket.findOneAndUpdate(
+                { _id: id }, 
+                { status, response }, 
+            );
+        }
+
+        console.log('Tickets updated successfully');
         return next();
     } catch (err) {
         return next({
-          log: 'failed to create ticket',
+          log: 'failed to update ticket',
           message: {err: `the error code: ${err}`}
         });
     }
