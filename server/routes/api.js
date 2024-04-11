@@ -27,7 +27,8 @@ router.get('/', ticketController.getTicket,
 
 router.put('/', ticketController.updateTicket,
   (req, res) => {
-    res.status(200);
+    console.log('im responding')
+    res.status(200).json({ message: 'Tickets updated successfully' });
   }
 );
 
