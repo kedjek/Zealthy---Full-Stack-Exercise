@@ -13,10 +13,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   mode: 'production',
-  devServer: {
-    host: 'localhost',
-    port: 8080,
-  },
   module: {
     rules: [
       {
