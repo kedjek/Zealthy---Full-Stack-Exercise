@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 const apiRouter = require('./routes/api');
+const mongoose = require('mongoose');
 
 const uri = "mongodb+srv://linsimon95:rOB1w3L4mrJueXt8@cluster0.hxoymdn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const mongoose = require('mongoose');
 mongoose.connect(uri, {})
 .then(() => {
   console.log('Connected to MongoDB');
