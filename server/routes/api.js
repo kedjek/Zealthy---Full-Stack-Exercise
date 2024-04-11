@@ -16,7 +16,7 @@ router.post('/', ticketController.createTicket,
   console.log('does this show in vercel api file?')
   console.log('does this show in vercel api file?')
   console.log('does this show in vercel api file?')
-  res.status(200);
+  res.status(200).json({ message: 'Ticket created successfully' });
 }
 );
 
