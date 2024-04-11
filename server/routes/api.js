@@ -13,11 +13,15 @@ router.post('/', ticketController.createTicket,
 );
 
 router.get('/', ticketController.getTicket,
-  (req, res) => {
-    //send list of tickets back as response
-    console.log('in get router of tickets')
-    console.log(res.locals.ticket)
-    res.status(200);
+  async (req, res) => {
+    try{
+      //send list of tickets back as response
+      const ticket = res.locals.ticket;
+      res.status(200).json(ticket);
+    } catch (err) {
+      console.error('Error on router to send back tickets: ', err);
+      res.status(500).strictContentLength({ error: 'Internal Server router error'})
+    }
   }
 );
 

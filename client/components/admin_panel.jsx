@@ -5,24 +5,27 @@ const AdminPanel = (props) => {
     const [tickets, setTickets] = useState([]);
 
     useEffect (() => {
-        fetch('/ticketsformsent')
+        //make get request to /ticketsformsent url and display all tickets here with response, update status of ticket 
+        //status are 'new', 'in progress' and 'resolved'
+        fetch('/ticketformsent')
             .then(response => {
+                console.log(response, 'response is frontend:')
                 if (!response.ok){
                     throw new Error ('Network did not respond with ticket list');
                 }
-                return response.json();
+                if (response.status === 204) {
+                    throw new Error('No tickets found');
+                }
+                return response.json()
             })
             .then (data => {
-                setTickets(data);
-                console.log(tickets, 'the tickets are:')
+                console.log(data, 'the tickets are:')
             })
             .catch (error => {
                 console.error('Error occured fetching tickets: ', error);
             })
     },[])
     
-    //make get request to /ticketsformsent url and display all tickets here with response, update status of ticket 
-    //status are 'new', 'in progress' and 'resolved'
 
 
     return(

@@ -23,6 +23,8 @@ ticketController.getTicket = async (req, res, next) => {
         try {
             const ticket = await Ticket.find().exec();
             res.locals.ticket = ticket;
+            return next();
+
         } catch (err) {
             return next({
                 log: 'failed to create ticket',
@@ -31,6 +33,7 @@ ticketController.getTicket = async (req, res, next) => {
         }
     } else {
         console.log ('Admin is not logged in. Please login at /backendadminpanel')
+        return next();
     }
 
 }
