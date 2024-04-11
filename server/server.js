@@ -3,10 +3,10 @@ const express = require ('express');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 const apiRouter = require('./routes/api');
 
-const uri = process.env.MONGODB_URI || "mongodb+srv://linsimon95:rOB1w3L4mrJueXt8@cluster0.hxoymdn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://linsimon95:rOB1w3L4mrJueXt8@cluster0.hxoymdn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const mongoose = require('mongoose');
 mongoose.connect(uri, {})
 .then(() => {
@@ -28,6 +28,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
   
+// Statically serve everything in the dist folder on route '/'
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Api routing when receiving form data
 app.use('/ticketformsent', apiRouter);
@@ -46,8 +48,6 @@ app.get('/backendadminpanelverified', (req, res) => {
   }
 });
 
-// Statically serve everything in the dist folder on route '/'
-app.use(express.static(path.join(__dirname, '../dist')));
 
 /*catch-all route handler for any requests to an unknown route*/
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
