@@ -23,7 +23,7 @@ const TicketForm = (props) => {
         try {
             console.log('Would normally send email here with body: ', formData)
 
-            const response = await fetch('https://zealthy-full-stack-exercise-kedjeks-projects.vercel.app/ticketformsent', {
+            const response = await fetch('/ticketformsent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
