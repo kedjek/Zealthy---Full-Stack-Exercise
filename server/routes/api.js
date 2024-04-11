@@ -8,7 +8,22 @@ const correctPassword = 'pwd';
 
 router.post('/', ticketController.createTicket,
   (req, res) => {
-    res.status(200).redirect('/');
+    res.status(200);
+  }
+);
+
+router.get('/', ticketController.getTicket,
+  (req, res) => {
+    //send list of tickets back as response
+    console.log('in get router of tickets')
+    console.log(res.locals.ticket)
+    res.status(200);
+  }
+);
+
+router.put('/', ticketController.updateTicket,
+  (req, res) => {
+    res.status(200);
   }
 );
 
