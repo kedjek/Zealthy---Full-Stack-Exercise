@@ -1,11 +1,4 @@
 {
-    "routes": [
-      {
-        "src": "/ticketformsent",
-        "methods": ["POST"],
-        "dest": "/ticketformsent"
-      }
-    ],
     "rewrites": [],
     "headers": [
       {
