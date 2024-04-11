@@ -6,30 +6,20 @@ const app = express();
 const port = process.env.PORT || 3000;
 const apiRouter = require('./routes/api');
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://linsimon95:rOB1w3L4mrJueXt8@cluster0.hxoymdn.mongodb.net/";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+const uri = "mongodb+srv://linsimon95:rOB1w3L4mrJueXt8@cluster0.hxoymdn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoose = require('mongoose');
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((err) => {
+  console.error('Error connecting to MongoDB:', err);
 });
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
 
+console.log('does this show in vercel?')
 // Handle parsing request body
 app.use(express.json());
 app.use(cookieParser());
@@ -37,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
   
 // Statically serve everything in the dist folder on route '/'
 app.use(express.static(path.join(__dirname, '../dist')));
+
+// Api routing when receiving form data
+app.use('/ticketformsent', apiRouter);
 
 // Serve the React app on /backendadminpanel url
 app.get('/backendadminpanel', (req, res) => {
@@ -53,12 +46,8 @@ app.get('/backendadminpanelverified', (req, res) => {
 });
 
 
-// Api routing when receiving formData
-app.use('/ticketformsent', apiRouter);
-
 /*catch-all route handler for any requests to an unknown route*/
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
-
 
 app.use((err, req, res, next) => {
     const defaultErr = {
