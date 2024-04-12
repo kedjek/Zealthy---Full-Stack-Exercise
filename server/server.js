@@ -17,7 +17,7 @@ mongoose.connect(uri, {})
   console.error('Error connecting to MongoDB:', err);
 });
 
-// Handle parsing request body
+// Handle parsing request body, cookies, url
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, vercelURL, 'dist')));
 
 // Api routing when receiving form data
-app.use(`${vercelURL}/ticketformsent`, apiRouter);
+app.use(`/ticketformsent`, apiRouter);
 
 // Serve the React app on /backendadminpanel url
 app.get('/backendadminpanel', (req, res) => {

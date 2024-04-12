@@ -11,7 +11,7 @@ console.log('does this show in vercel api file?')
 
 
 
-router.post('/', ticketController.createTicket,
+router.post('/ticketformsent', ticketController.createTicket,
 (req, res) => {
   console.log('does this show in vercel api file?')
   console.log('does this show in vercel api file?')
