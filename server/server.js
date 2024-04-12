@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, vercelURL, 'dist')));
 
 // Api routing when receiving form data
-app.use(`${vercelURL} + / ticketformsent`, apiRouter);
+app.use(`${vercelURL}/ticketformsent`, apiRouter);
 
 // Serve the React app on /backendadminpanel url
 app.get('/backendadminpanel', (req, res) => {
