@@ -33,7 +33,7 @@ app.get('/backendadminpanel', (req, res) => {
 });
 
 // Serve the React app on /backendadminpanelverified url when cookie is true ie. logged in
-app.get('backendadminpanelverified', (req, res) => {
+app.get('/backendadminpanelverified', (req, res) => {
   if (req.cookies.adminLoggedIn === 'true'){
     res.sendFile(path.join(__dirname, '../dist', 'index.html'));
   } else {
