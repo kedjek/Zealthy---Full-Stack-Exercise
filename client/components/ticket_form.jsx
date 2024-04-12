@@ -10,9 +10,6 @@ const TicketForm = (props) => {
         message: '',
         recaptcha: '',
       });
-
-      const vercelUrl = process.env.REACT_APP_VERCEL_URL;
-
     
       // Handle form submission
       const handleSubmit = async (e) => {
@@ -27,10 +24,8 @@ const TicketForm = (props) => {
         try {
             console.log('Would normally send email here with body: ', formData)
             console.log( "vercel url is written here")
-            console.log(process.env.REACT_APP_VERCEL_URL)
 
-
-            const response = await fetch(`${vercelUrl}/ticketformsent`, {
+            const response = await fetch(`/ticketformsent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

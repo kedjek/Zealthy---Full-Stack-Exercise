@@ -3,11 +3,12 @@ const express = require ('express');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+const uri = process.env.MONGODB_URI;
+const vercelURL = process.env.VERCELURL;
 const apiRouter = require('./routes/api');
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://linsimon95:rOB1w3L4mrJueXt8@cluster0.hxoymdn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.connect(uri, {})
 .then(() => {
   console.log('Connected to MongoDB');
@@ -22,7 +23,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
   
 // Statically serve everything in the dist folder on route '/'
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, vercelURL, 'dist')));
 
 // Api routing when receiving form data
 app.use('/ticketformsent', apiRouter);
