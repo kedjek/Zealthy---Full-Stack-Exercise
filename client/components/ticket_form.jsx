@@ -25,13 +25,15 @@ const TicketForm = (props) => {
             console.log('Would normally send email here with body: ', formData)
             console.log( "vercel url is written here")
 
-            const response = await fetch(`/ticketformsent`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            // const response = await fetch(`/ticketformsent`, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData),
+            // });
+            const response = await fetch(`/`, {
+          });
             if (response.ok) {
               console.log('Email sent successfully!');
               // Refresh the page after successful submission
