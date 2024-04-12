@@ -25,10 +25,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Api routing when receiving form data
-app.use(`ticketformsent`, apiRouter);
+app.use(`/ticketformsent`, apiRouter);
 
 // Serve the React app on /backendadminpanel url
-app.get('backendadminpanel', (req, res) => {
+app.get('/backendadminpanel', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 

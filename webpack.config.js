@@ -33,7 +33,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'images/', // optional, this will copy the files to dist/images
+            outputPath: 'images/',
           },
         },
       },
@@ -46,7 +46,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
-    // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx', '.svg'],
   },
 };
