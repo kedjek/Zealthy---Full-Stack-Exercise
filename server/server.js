@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, vercelURL, 'dist')));
 app.use(`/ticketformsent`, apiRouter);
 
 // Serve the React app on /backendadminpanel url
-app.get('/backendadminpanel', (req, res) => {
+app.get('https://zealthy-full-stack-exercise.onrender.com/backendadminpanel', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
