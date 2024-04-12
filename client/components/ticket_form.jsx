@@ -23,8 +23,6 @@ const TicketForm = (props) => {
         // Add logic to handle form submission (e.g., send data to a server)
         try {
             console.log('Would normally send email here with body: ', formData)
-            console.log( "vercel url is written here")
-
             const response = await fetch('/ticketformsent', {
                 method: 'POST',
                 headers: {
